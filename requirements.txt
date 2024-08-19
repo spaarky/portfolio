@@ -2,3 +2,5 @@ panda
 numpy
 matplotlib
 pycocotools
+torch
+torchvision
