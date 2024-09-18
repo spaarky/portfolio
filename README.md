@@ -61,8 +61,28 @@ You can install the required packages by running:
 
 ```bash
 pip install -r requirements_cnn_Lstm.txt
-
+```
 ## Installation
+
+```bash
+git clone git@github.com:spaarky/portfolio.git
+```
+
+## Usage
+```bash
+streamlit run interface.py
+```
+## Evaluate
+
+To evaluate the model, you can use the BLEU score, which is a popular metric for evaluating text generation tasks like image captioning. The model is tested on a separate validation set, and the BLEU score is computed for different n-gram levels (e.g., BLEU-1, BLEU-2).
+
+```bash
+# BLEU score evaluation
+bleu_score_1 = corpus_bleu(actual_captions, predicted_captions, weights=(1.0, 0, 0, 0))
+bleu_score_2 = corpus_bleu(actual_captions, predicted_captions, weights=(0.5, 0.5, 0, 0))
+```
+
+## Results
 
 
 
