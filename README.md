@@ -92,7 +92,6 @@ bleu_score_2 = corpus_bleu(actual_captions, predicted_captions, weights=(0.5, 0.
 | <img src="https://previews.123rf.com/images/oksun70/oksun701206/oksun70120600120/14105349-enfant-qui-joue-des-blocs-de-jouet-isol%C3%A9-sur-fond-blanc.jpg" width="200"/> | young girl in blue and orange stockings is playing with toy|
 | <img src="https://img.freepik.com/photos-gratuite/homme-cuisine-homme-afro-americain-sejournant-dans-cuisine-homme-t-shirt-noir_1157-48443.jpg" width="200"/> | woman in black shirt and white shorts is cooking in kitchen |
 
-## Reference
 
 ## References
 
