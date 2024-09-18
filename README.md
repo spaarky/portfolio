@@ -98,12 +98,3 @@ bleu_score_2 = corpus_bleu(actual_captions, predicted_captions, weights=(0.5, 0.
 1. **LSTM Network**: For more information on LSTM networks, see [GeeksforGeeks](#LSTM-Network).
 2. **VGG16 Model**: Details on the VGG16 model can be found in the [Keras documentation](#VGG16-Model).
 3. **Flickr30k**: The dataset used is available on [Kaggle](#Flickr30k).
-
----
-
-### Footnotes
-
-1. <a name="LSTM-Network"></a> [GeeksforGeeks](https://www.geeksforgeeks.org/deep-learning-introduction-to-long-short-term-memory/)
-2. <a name="VGG16-Model"></a> [Keras](https://keras.io/api/applications/vgg/)
-3. <a name="Flickr30k"></a> [Kaggle](https://www.kaggle.com/datasets/eeshawn/flickr30k)
-
