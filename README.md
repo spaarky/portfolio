@@ -60,4 +60,9 @@ To run this project, you will need the following libraries and frameworks:
 You can install the required packages by running:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements_cnn_Lstm.txt
+
+## Installation
+
+
+
