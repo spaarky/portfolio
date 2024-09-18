@@ -1,68 +1,63 @@
+# CNN Image Caption Generator with LSTM
 
-# CNN-LSTM Image Caption Generator
+This project implements an **Image Caption Generator** using a combination of **Convolutional Neural Networks (CNN)** for image feature extraction and **Long Short-Term Memory (LSTM)** networks for generating natural language descriptions. The model is trained on the **Flickr30K dataset** to learn how to generate captions for images, leveraging the image features extracted by a pre-trained CNN (VGG16) and a sequence model (LSTM) for caption prediction.
 
-This project is an image caption generator built using a combination of Convolutional Neural Networks (CNN) for image feature extraction and Long Short-Term Memory (LSTM) networks for caption generation. The model extracts features from images using a pre-trained VGG16 network and generates captions using an LSTM-based language model.
+## Table of Contents
 
-## Features
+- [Project Overview](#project-overview)
+- [Model Architecture](#model-architecture)
+- [Dataset](#dataset)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Training the Model](#training-the-model)
+- [Evaluation](#evaluation)
+- [Results](#results)
+- [References](#references)
 
-- **Image Feature Extraction**: Utilizes a pre-trained VGG16 CNN model to extract high-level features from input images.
-- **Caption Generation**: Employs an LSTM-based language model to generate meaningful captions based on the extracted image features.
-- **Streamlit Interface**: A user-friendly web interface built with Streamlit for uploading images and generating captions.
+## Project Overview
 
-## Installation
+This project aims to automatically generate textual descriptions for images. The main steps include:
 
-1. Clone the repository:
+1. **Image Feature Extraction**: Using a pre-trained CNN (VGG16), the model extracts feature vectors from input images.
+2. **Text Generation**: The LSTM is responsible for generating captions word by word, based on the features extracted from the CNN.
+3. **Training**: The model is trained using a dataset of images with corresponding captions to learn the association between images and text.
+4. **Caption Prediction**: After training, the model can generate a meaningful caption for a new image by predicting one word at a time until it generates a complete description.
 
-    ```bash
-    git clone https://github.com/your-username/cnn-lstm-caption-generator.git
-    cd cnn-lstm-caption-generator
-    ```
+## Model Architecture
 
-2. Install the required Python libraries:
+The model architecture is a combination of:
+- **VGG16** for **image feature extraction**. The pre-trained VGG16 model is used to extract 4096-dimensional feature vectors from images by taking the output of the second fully connected layer (`fc2`).
+- **LSTM network** for **text generation**. The LSTM processes the sequence of words to predict the next word in the sequence.
+- The final output is a sequence of words forming a caption for the input image.
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Download the pre-trained VGG16 weights (optional) or ensure TensorFlow handles model loading.
-
-## Usage
-
-### Training the Model
-
-To train the captioning model:
-
-```bash
-python train.py
-```
-
-Make sure to have your image dataset and corresponding captions prepared in the correct format.
-
-### Running the Streamlit App
-
-To run the app and generate captions for your images:
-
-```bash
-streamlit run app.py
-```
-
-This will launch a web interface where you can upload images and get captions generated.
-
-## Code Structure
-
-- `app.py`: Streamlit web application for caption generation.
-- `train.py`: Script to train the captioning model using image features and captions.
-- `model.py`: Defines the CNN-LSTM model architecture.
-- `data_generator.py`: Custom data generator to feed image-caption pairs to the model.
-- `requirements.txt`: List of dependencies required for the project.
+### Model Layers:
+1. **Encoder (CNN)**: VGG16 model is used as the encoder to extract image features.
+2. **Decoder (LSTM)**: The LSTM processes sequences of tokenized text (captions) and is trained to predict the next word in the sequence.
+3. **Dense Layers**: Fully connected layers after the LSTM to produce word predictions based on vocabulary size.
 
 ## Dataset
 
-This model can be trained on any image-caption dataset like [Flickr8k](https://www.kaggle.com/adityajn105/flickr8k), [Flickr30k](https://www.kaggle.com/hsankesara/flickr-image-dataset), or MSCOCO dataset.
+The model is trained on the **Flickr30K** dataset, which contains 31,000 images with five captions per image.
 
-## References
+- **Images**: 31,000 images in total.
+- **Captions**: Each image has five human-annotated captions describing the content of the image.
 
-1. [VGG16 - Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)
-2. [Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555)
-3. [Flickr8k Dataset](https://www.kaggle.com/adityajn105/flickr8k)
-4. [Flickr30k Dataset](https://www.kaggle.com/hsankesara/flickr-image-dataset)
+## Requirements
+
+To run this project, you will need the following libraries and frameworks:
+
+- Python 3.x
+- TensorFlow 2.x
+- Keras
+- NumPy
+- NLTK
+- tqdm
+- Pillow (PIL)
+- Streamlit (for the interface)
+- pickle (for saving and loading model/data)
+
+You can install the required packages by running:
+
+```bash
+pip install -r requirements.txt
