@@ -84,5 +84,13 @@ bleu_score_2 = corpus_bleu(actual_captions, predicted_captions, weights=(0.5, 0.
 
 ## Results
 
+# Tableau des Images et Captions
+
+| Image | Caption |
+|-------|---------|
+| <img src="https://previews.123rf.com/images/tdietrich/tdietrich1309/tdietrich130900038/22119976-chien-qui-court-dans-un-pr%C3%A9.jpg" width="200"/> | brown dog is running on the grass |
+| <img src="path/to/image2.jpg" width="200"/> | Caption pour l'image 2 |
+| <img src="path/to/image3.jpg" width="200"/> | Caption pour l'image 3 |
+
 
 
