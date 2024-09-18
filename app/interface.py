@@ -23,30 +23,6 @@ caption_model = load_model(os.path.join(WORKING_DIR, 'best_model.h5'))
 base_model = VGG16(weights='imagenet')  # Load VGG16 model with ImageNet weights
 vgg_model = Model(inputs=base_model.inputs, outputs=base_model.get_layer('fc2').output)  # Create a new model with 'fc2' layer as output
 
-# Extract features from images in the specified directory
-features = {}
-directory = os.path.join(BASE_DIR, 'Images')  # Directory containing images
-
-for img_name in tqdm(os.listdir(directory)):  # Iterate through all images in the directory
-    # Load the image from file
-    img_path = directory + '/' + img_name  # Path to the image file
-    image = load_img(img_path, target_size=(224, 224))  # Load image and resize to 224x224
-    # Convert image pixels to numpy array
-    image = img_to_array(image)  # Convert the image to a numpy array
-    # Reshape data for the VGG16 model
-    image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))  # Reshape image to (1, height, width, channels)
-    # Preprocess image for VGG16
-    image = preprocess_input(image)  # Preprocess image for VGG16 model
-    # Extract features
-    feature = vgg_model.predict(image, verbose=0)  # Predict features for the image
-    # Get image ID
-    image_id = img_name.split('.')[0]  # Extract image ID from filename (without extension)
-    # Store feature in dictionary
-    features[image_id] = feature  # Save extracted feature in the dictionary
-
-# Save extracted features to a pickle file for later use
-pickle.dump(features, open(os.path.join(WORKING_DIR, 'features.pkl'), 'wb'))
-
 # Load the tokenizer object from a pickle file
 with open(os.path.join(WORKING_DIR, 'features.pkl'), 'rb') as f:
     tokenizer = pickle.load(f)  # Load the tokenizer
