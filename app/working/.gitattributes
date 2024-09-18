@@ -1,0 +1,4 @@
+*.py filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text
+/Users/grem/Documents/porfolio/portfolio/app/working filter=lfs diff=lfs merge=lfs -text
