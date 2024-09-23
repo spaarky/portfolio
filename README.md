@@ -24,6 +24,11 @@ This project aims to automatically generate textual descriptions for images. The
 3. **Training**: The model is trained using a dataset of images with corresponding captions to learn the association between images and text.
 4. **Caption Prediction**: After training, the model can generate a meaningful caption for a new image by predicting one word at a time until it generates a complete description.
 
+## Code Architecture
+![improved_image_captioning_architecture](https://github.com/user-attachments/assets/f3308ee6-38cd-453a-8422-a5f0cc45799f)
+
+
+
 ## Model Architecture
 
 The model architecture is a combination of:
